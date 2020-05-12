@@ -1,0 +1,25 @@
+div{
+	align:center;
+	margin:20px;
+
+}
+#form{
+	width:500px;
+	clear:both;
+}
+#myform{
+	width:100px;
+	clear:both;
+	margin-left:10%;
+	margin-right:auto;
+}
+input{
+	margin:20px;
+}
+h2{
+	margin-left: 5%;
+}
+button{
+	height: 30px;
+	align-self:baseline;
+}
