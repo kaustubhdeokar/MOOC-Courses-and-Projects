@@ -3,13 +3,18 @@ Program to take screenshots after regular time interval specified command line a
 To use it:- 
 
 1) install pip3
+          
+          sudo apt install python3-pip
 
-2) pip3 install -r libraries.txt   
-          (Installs all necessary libraries.)
+2)Install all necessary libraries.
 
-3) python3 screenshot.py <time-limit>
+          pip3 install -r libraries.txt   
+         
+
+3)Run command as:- python3 screenshot.py <time-limit>
+          
           ex. python3 screenshot.py 2
 
-saves the image in included images folder.
+4)Saved images can be found in the images folder.
 
-**(pip3 is used, specify according to your configurations.)
+**(pip3 is used, specify according to your configurations.)**
