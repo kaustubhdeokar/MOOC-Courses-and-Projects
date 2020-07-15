@@ -1,0 +1,3 @@
+[submodule "UdacityAWSScholarship"]
+	path = UdacityAWSScholarship
+	url = https://github.com/kaustubhdeokar/Udacity-AWS-Scholarship.git
