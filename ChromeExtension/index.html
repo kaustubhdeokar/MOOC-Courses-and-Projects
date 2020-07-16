@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+  <link rel="stylesheet" href="style.css"/>
+   <script type="text/javascript">
+          function init(){
+      var name=prompt("Enter your name","here");
+      document.getElementById("greeting").innerHTML="Hello, "+name;
+      var now = new Date();
+      document.getElementById("time").innerHTML=now.getHours()+":"+now.getMinutes();
+      document.getElementById("date").innerHTML=now.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'});
+      var a=loadJSON("http://api.openweathermap.org/data/2.5/forecast?q=Vellore&APPID=e4aeb7a72f076259e80fd3340fd3f613",gotData,'jsonp');
+      function gotData(data){
+      console.log(data);
+      
+      document.getElementById('info2').innerHTML='Temp.='+Math.round(data.list[0].main.temp-273.15) +'&#8451<br>'+'Min_temp.='+Math.round(data.list[0].main.temp_min-273.15)+'&#8451<br>'+'Max_temp.='+Math.round(data.list[0].main.temp_max-273.15)+'&#8451<br>'+data.city.name;
+      //data.list[0].weather[0].main;
+      }   
+  }
+
+  function loadJSON(path, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        success(JSON.parse(xhr.responseText));
+      }
+      else {
+        error(xhr);
+      }
+    }
+  };
+  xhr.open('GET', path, true);
+  xhr.send();
+}
+     </script> 
+</head>
+<body onload="init()" background="bg1.jpg">
+    
+
+     <div class="overlay">
+
+      <div class="top">
+        <div class="left">
+            <h1 id="time" style="font-size:50px;
+                 margin:0; font-family: 'Helvetica, sans-serif';
+                 font-style: oblique;
+                 font-variant: normal;">
+                 16:00
+            </h1>
+            <h2 id="greeting" 
+              style="font-size:50px;
+                 margin:0; font-family: 'Helvetica, sans-serif';
+                 font-style: oblique;
+                 font-variant: normal;">Hello, a
+            </h2>
+        </div>
+        <div class="right">
+           <div id="date">
+                Wed, Oct 17, 2018  
+           </div>
+            <h1 id="info2" style="font-size:30px;
+                 margin:0; font-family: 'Helvetica, sans-serif';
+                 font-style: normal;
+                 font-variant: normal;">Temp.=30℃<br>Min_temp.=27℃<br>Max_temp.=27℃</h1>
+        </div>
+     </div>
+      
+	</div>
+	
+</body>
+</html>
